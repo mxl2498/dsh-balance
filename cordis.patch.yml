@@ -1,0 +1,18 @@
+# dsh bundle patch: inserts the balance widget into a profile's layer stack.
+# 配置项（服务端与客户端共用同一 config 对象）：
+#   服务端：cacheSeconds  余额接口缓存秒数（默认 60）
+#           topUpUrl      充值页地址（默认 DeepSeek 开放平台充值页）
+#   客户端：enabled              是否启用悬浮球（默认 true）
+#           refreshSeconds       自动刷新间隔秒数（默认 60）
+#           lowBalanceThreshold  余额低于该值（CNY）时红色告警（默认 5）
+#           position             悬浮位置：bottom-right | top-right | bottom-left | top-left
+- insert:
+    - id: 余额悬浮球
+      name: '@dsh-external/余额悬浮球'
+      config:
+        cacheSeconds: 60
+        topUpUrl: https://platform.deepseek.com/top_up
+        enabled: true
+        refreshSeconds: 60
+        lowBalanceThreshold: 5
+        position: bottom-right
